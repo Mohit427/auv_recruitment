@@ -8,7 +8,7 @@ To run these packages, you need to have ROS 2 Humble installed.
 
 **1. Clone the repository:**
 bash
-git clone https://github.com/YOUR_USERNAME/auv_recruitment.git
+git clone https://github.com/Mohit427/auv_recruitment.git
 cd auv_recruitment/auv_ws
 
 
