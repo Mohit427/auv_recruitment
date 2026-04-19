@@ -98,7 +98,7 @@ ros2 run dead_reckoning navigator_node
 
 Type commands such as `forward`, `backward`, `turn left`, or `turn right` into Terminal 1 to see the Navigator dynamically update the bot's coordinates and heading in Terminal 2.
 
-**Issues Faced**
+**Issues Faced:**
 This wad a bit different than the other tasks in the manner in which the data was delivered. It was not of any standard data type such as String or float32, but a combination of the two and also, it was a bit of a learning curve on how to use and manipulate data of such a manner.
 
 ---
@@ -109,7 +109,7 @@ A vision-based ROS 2 node that captures a live webcam feed, isolates a specific 
 **Structure:**
 * `visual_lock`: A Python package handling the V4L2 camera stream and OpenCV image processing pipeline.
 
-**Issues faced**
+**Issues faced:**
 Since I was running the entire setup on a VirtuaBox version of Ubuntu, I had a hard time making my VM connect with my webcam. It was a tiresome process, connecting my webcam to the VM, giving it permissions and then finally being able to execute it...Also, State 1 and State 2 works well but the Canny edge filter of state 3 is unstable and it is taking a long time to detect and load.
 
 \`\`\`bash
