@@ -73,3 +73,23 @@ You can visualize the active data flow between these nodes by opening a fourth t
 bash
 rqt_graph
 
+### Task 3: Dead Reckoning System (Custom Interfaces & State Machine)
+This task simulates basic submarine movement tracking using a completely custom ROS 2 message (`BotPose.msg`) and a Python-based finite state machine to calculate directional heading. 
+
+**Structure:**
+* `auv_interfaces`: A CMake package containing the custom message definition.
+* `dead_reckoning`: A Python package containing the Commander and Navigator nodes.
+
+**Execution:**
+Open two separate terminals, navigate to `auv_ws`, and source the setup file in both.
+
+*Terminal 1 (The Commander):*
+\`\`\`bash
+ros2 run dead_reckoning commander_node
+\`\`\`
+*Terminal 2 (The Navigator):*
+\`\`\`bash
+ros2 run dead_reckoning navigator_node
+\`\`\`
+
+Type commands such as `forward`, `backward`, `turn left`, or `turn right` into Terminal 1 to see the Navigator dynamically update the bot's coordinates and heading in Terminal 2.
