@@ -48,3 +48,28 @@ ros2 run comm_link chat_node Hawcker
 
 **Task 1: The Comm-Link**
 This was a moderate task. It helped me to learn the basics ofhow nodes and topics work in ROS2 and How Subscription and Publishing tasks are done. Also, since getting input using Python and rclpy spin are both infinite tasks that cannot be run simultaneously,the interesting concept of threading was introduced in which rclpy spin was run on a different thread and python input run normally. I did not face any great challenges in this task but setting up git with the username and token on a VM took some time. Otherwise this was a great starting point of a task.
+
+
+### Task 2: Signal Processing Pipeline
+The second task is a multi-node mathematical pipeline demonstrating timer-based execution and sequential topic processing. An even number has to published by a node and one middleman node subscribes to the node and performs an operation and then publishes it which is captured by another node to give a final output. I loved the sequential processing, and it was very satisying to see unfold. 
+
+**Execution:**
+Open three separate terminals, navigate to `auv_ws`, and source the setup file in all of them.
+
+*Terminal 1 (The Source - 1 Hz Timer):*
+bash
+ros2 run signal_pipeline publisher_node
+
+*Terminal 2 (The Multiplier):*
+bash
+ros2 run signal_pipeline processor_node
+
+*Terminal 3 (The Output Logger):*
+bash
+ros2 run signal_pipeline output_node
+
+
+You can visualize the active data flow between these nodes by opening a fourth terminal and running:
+bash
+rqt_graph
+
