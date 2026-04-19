@@ -93,3 +93,22 @@ ros2 run dead_reckoning navigator_node
 \`\`\`
 
 Type commands such as `forward`, `backward`, `turn left`, or `turn right` into Terminal 1 to see the Navigator dynamically update the bot's coordinates and heading in Terminal 2.
+
+### Task 4: Operation Visual Lock (OpenCV State Machine)
+A vision-based ROS 2 node that captures a live webcam feed, isolates a specific colored target using HSV masking, and applies dynamic visual filters based on the target's coordinates within the frame.
+
+**Structure:**
+* `visual_lock`: A Python package handling the V4L2 camera stream and OpenCV image processing pipeline.
+
+**Execution:**
+Ensure your host machine is not hogging the camera, open a terminal, navigate to `auv_ws`, and source the setup file.
+
+\`\`\`bash
+ros2 run visual_lock vision_node
+\`\`\`
+
+**State Behaviors:**
+* **Lost (Target Missing):** Inverted / Negative color filter.
+* **State 1 (Left Third):** Grayscale filter.
+* **State 2 (Center Third):** Normal color feed.
+* **State 3 (Right Third):** Canny Edge Detection filter.
