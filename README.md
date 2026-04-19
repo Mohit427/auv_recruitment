@@ -50,6 +50,8 @@ ros2 run comm_link chat_node Hawcker
 This was a moderate task. It helped me to learn the basics ofhow nodes and topics work in ROS2 and How Subscription and Publishing tasks are done. Also, since getting input using Python and rclpy spin are both infinite tasks that cannot be run simultaneously,the interesting concept of threading was introduced in which rclpy spin was run on a different thread and python input run normally. I did not face any great challenges in this task but setting up git with the username and token on a VM took some time. Otherwise this was a great starting point of a task.
 
 
+---
+
 ### Task 2: Signal Processing Pipeline
 The second task is a multi-node mathematical pipeline demonstrating timer-based execution and sequential topic processing. An even number has to published by a node and one middleman node subscribes to the node and performs an operation and then publishes it which is captured by another node to give a final output. I loved the sequential processing, and it was very satisying to see unfold. 
 
@@ -73,6 +75,8 @@ You can visualize the active data flow between these nodes by opening a fourth t
 bash
 rqt_graph
 
+---
+
 ### Task 3: Dead Reckoning System (Custom Interfaces & State Machine)
 This task simulates basic submarine movement tracking using a completely custom ROS 2 message (`BotPose.msg`) and a Python-based finite state machine to calculate directional heading. 
 
@@ -94,14 +98,19 @@ ros2 run dead_reckoning navigator_node
 
 Type commands such as `forward`, `backward`, `turn left`, or `turn right` into Terminal 1 to see the Navigator dynamically update the bot's coordinates and heading in Terminal 2.
 
+**Issues Faced**
+This wad a bit different than the other tasks in the manner in which the data was delivered. It was not of any standard data type such as String or float32, but a combination of the two and also, it was a bit of a learning curve on how to use and manipulate data of such a manner.
+
+---
+
 ### Task 4: Operation Visual Lock (OpenCV State Machine)
 A vision-based ROS 2 node that captures a live webcam feed, isolates a specific colored target using HSV masking, and applies dynamic visual filters based on the target's coordinates within the frame.
 
 **Structure:**
 * `visual_lock`: A Python package handling the V4L2 camera stream and OpenCV image processing pipeline.
 
-**Execution:**
-Ensure your host machine is not hogging the camera, open a terminal, navigate to `auv_ws`, and source the setup file.
+**Issues faced**
+Since I was running the entire setup on a VirtuaBox version of Ubuntu, I had a hard time making my VM connect with my webcam. It was a tiresome process, connecting my webcam to the VM, giving it permissions and then finally being able to execute it...Also, State 1 and State 2 works well but the Canny edge filter of state 3 is unstable and it is taking a long time to detect and load.
 
 \`\`\`bash
 ros2 run visual_lock vision_node
@@ -112,3 +121,5 @@ ros2 run visual_lock vision_node
 * **State 1 (Left Third):** Grayscale filter.
 * **State 2 (Center Third):** Normal color feed.
 * **State 3 (Right Third):** Canny Edge Detection filter.
+
+---
